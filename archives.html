@@ -17,35 +17,93 @@
     <link rel="stylesheet" href="./css/index.css">
 </head>
 <style>
-    .main {
-        justify-content: flex-start;
-        align-items: flex-start;
-        padding: 50px 30px;
-        flex-direction: column;
-    }
-
     .archivesTitle {
         font-size: 30px;
         margin-bottom: 50px;
     }
-
+    
     .archivesList {
+        width: 960px;
+        margin: 30px auto;
+    }
+    
+    .title {
+        height: 150px;
         width: 100%;
+        background: #fafafa;
         display: flex;
-        justify-content: space-between;
+        /* align-items: center; */
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 150px;
+        box-sizing: border-box;
+    }
+    
+    .titleP {
+        color: #222;
+        font-size: 36px;
+        font-weight: bold;
+    }
+    
+    .titleDetail {
+        color: rgb(102, 102, 102);
+        font-size: 16px;
+        margin-top: 10px;
+    }
+    
+    .navCaver {
+        height: 70px;
+        border: 1px solid rgb(238, 238, 238);
+        display: flex;
+        align-items: center;
+        padding: 0 150px;
+        box-sizing: content-box;
+    }
+    
+    .navItem {
+        height: 70px;
+        line-height: 70px;
+        padding: 0 30px;
+        color: rgb(34, 34, 34);
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    
+    .navItemActivity {
+        color: #767676 !important;
     }
 </style>
 
 <body>
     <div class="container">
         <div class="main">
-            <div class="archivesTitle">归档</div>
+            <div class="title">
+                <p class="titleP">陌上花开</p>
+                <p class="titleDetail">分享知识是最高效的学习方法之一</p>
+            </div>
+            <div class="navCaver">
+                <div class="navItem navItemActivity" onclick="handleItemClick(this)">首页</div>
+                <div class="navItem" onclick="handleItemClick(this)">JavaScript</div>
+            </div>
+
             <div class="archivesList">
-                <a href="./detail.html">Hello World</a>
+                <div class="archivesTitle">归档</div>
+                <a href="./detail.html">Js闭包</a>
                 <p>2020/04/16</p>
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <script>
+        function handleItemClick(e) {
+            $(e).addClass("navItemActivity").siblings().removeClass('navItemActivity');
+            if ($(e).text() == "首页") {
+                window.location = "./index.html";
+            }
+        }
+    </script>
 </body>
 
 </html>
